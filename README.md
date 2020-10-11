@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 # How to use
 
-1. Register a new [Twitch app](https://dev.twitch.tv/) 
+1. Register a new [Twitch app](https://dev.twitch.tv/).
 2. Get your app Client-ID and Secret-ID.
 3. Paste them in the variables CLIENT_ID and CLIENT_SECRET inside `ClipDownloader.py`
 4. Run `python ClipDownloader.py`
