@@ -23,32 +23,27 @@ def downloadClip():
 
 
     for i in range(len(url)):
-        
         if(url[i] != ""):
-                
             clipId = url[i].split("clip/", -1)[1]
             clipId = clipId.split("?", 1)[0]
-
-
             r = requests.get("https://api.twitch.tv/helix/clips?id="+ clipId, headers = HEADERS).json()
+            
             for items in r['data']:
                 clipTitle = items['title']
                 downloadUrl = items['thumbnail_url']
-
-
+                
             if(downloadUrl):
                 finalUrl = downloadUrl.split("-preview", 1)[0]
                 finalUrl += ".mp4"
+                
             else:
                 print("Failed to get the download url")
-
+                
             if(clipTitle):
                 try:
-
                     clipTitle = removeSpecialChars(clipTitle)
                     print("Downloading " + clipTitle)
                     clipTitle += ".mp4"
-                
                     urllib.request.urlretrieve(finalUrl, PATH + clipTitle)
                     print("Succesfully downloaded")
 
